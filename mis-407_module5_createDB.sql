@@ -33,7 +33,7 @@ CREATE TABLE acme_crm.customer (
   last_name VARCHAR(30) NOT NULL, -- customer’s last name
   address1 VARCHAR(30) NOT NULL, -- street address
   address2 VARCHAR(30), -- secondary street address
-  city VARCHAR(30) NOT NULL, --city
+  city VARCHAR(30) NOT NULL, -- city
   postal_code VARCHAR(6) NOT NULL, -- zip or postal code (MX has 6 char postal)
   state_province VARCHAR(3) NOT NULL, -- state or province (MX has 3 char state)
   country VARCHAR(2) NOT NULL, -- country code (US, CA, MX)
@@ -64,7 +64,7 @@ CREATE TABLE acme_crm.order_item (
   unit_cost DECIMAL(9,2) NOT NULL, -- cost of the item at the time of order
   quantity INT NOT NULL, -- number of items ordered
   total_cost DECIMAL(9,2) NOT NULL,-- unit_cost x quantity
-  PRIMARY KEY (id)
-  FOREIGN KEY (order_id) REFERENCES acme_crm.order(id)
+  PRIMARY KEY (id),
+  FOREIGN KEY (order_id) REFERENCES acme_crm.order(id),
   FOREIGN KEY (item_id) REFERENCES acme_crm.item(id)
 );
