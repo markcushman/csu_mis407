@@ -59,7 +59,7 @@ CREATE TABLE acme_crm.order (
 DROP TABLE IF EXISTS acme_crm.order_item;
 CREATE TABLE acme_crm.order_item (
   id INT NOT NULL AUTO_INCREMENT = 100000, -- unique ID of the order line
-  order_id INT NOT NULL, -- id of the order
+  order_id INT NOT NULL, -- id of the order from order table
   item_id INT NOT NULL, -- id of the item ordered
   unit_cost DECIMAL(9,2) NOT NULL, -- cost of the item at the time of order
   quantity INT NOT NULL, -- number of items ordered
