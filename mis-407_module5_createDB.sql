@@ -19,16 +19,18 @@ USE acme_crm;
 -- Create the item table which is the record for each individual item
 DROP TABLE IF EXISTS acme_crm.item;
 CREATE TABLE acme_crm.item (
-  id INT NOT NULL AUTO_INCREMENT = 100000, /* unique ID of the item */
+  id INT NOT NULL AUTO_INCREMENT, /* unique ID of the item */
   unit_cost DECIMAL(9,2) NOT NULL, /* current cost of the item */
   description VARCHAR(1024) NOT NULL, /* text description of the item */
   PRIMARY KEY (id)
 );
+-- Make the id column auto increment from 100000
+ALTER TABLE acme_crm.item AUTO_INCREMENT = 100000;
 
 -- Create the customer table that contains customer records
 DROP TABLE IF EXISTS acme_crm.customer;
 CREATE TABLE acme_crm.customer (
-  id INT NOT NULL AUTO_INCREMENT = 1000, /* unique ID of the customer */
+  id INT NOT NULL AUTO_INCREMENT, /* unique ID of the customer */
   first_name VARCHAR(30) NOT NULL, /* customer’s first name */
   last_name VARCHAR(30) NOT NULL, /* customer’s last name */
   address1 VARCHAR(30) NOT NULL, /* street address */
@@ -39,6 +41,8 @@ CREATE TABLE acme_crm.customer (
   country VARCHAR(2) NOT NULL, /* country code (US, CA, MX) */
   PRIMARY KEY (id)
 );
+-- Make the id column auto increment from 1000
+ALTER TABLE acme_crm.customer AUTO_INCREMENT = 1000;
 
 -- Now move on to the tables that have foreign key constraints on tables
 -- that we have already created
@@ -46,7 +50,7 @@ CREATE TABLE acme_crm.customer (
 -- Create the order table that contains order records linked to order_item
 DROP TABLE IF EXISTS acme_crm.order;
 CREATE TABLE acme_crm.order (
-  id INT NOT NULL AUTO_INCREMENT = 100000, /* unique ID of this order */
+  id INT NOT NULL AUTO_INCREMENT, /* unique ID of this order */
   customer_id INT NOT NULL, /* id of the customer */
   order_date DATETIME NOT NULL, /* date the order was placed */
   ship_date DATETIME NOT NULL, /* date the order was shipped */
@@ -54,11 +58,13 @@ CREATE TABLE acme_crm.order (
   PRIMARY KEY (id),
   FOREIGN KEY (customer_id) REFERENCES acme_crm.customer(id)
 );
+-- Make the id column auto increment from 100000
+ALTER TABLE acme_crm.order AUTO_INCREMENT = 100000;
 
 -- Create the order_item table which is a child of order
 DROP TABLE IF EXISTS acme_crm.order_item;
 CREATE TABLE acme_crm.order_item (
-  id INT NOT NULL AUTO_INCREMENT = 100000, /* unique ID of the order line */
+  id INT NOT NULL AUTO_INCREMENT, /* unique ID of the order line */
   order_id INT NOT NULL, /* id of the order from order table */
   item_id INT NOT NULL, /* id of the item ordered */
   unit_cost DECIMAL(9,2) NOT NULL, /* cost of the item at the time of order */
@@ -68,3 +74,5 @@ CREATE TABLE acme_crm.order_item (
   FOREIGN KEY (order_id) REFERENCES acme_crm.order(id),
   FOREIGN KEY (item_id) REFERENCES acme_crm.item(id)
 );
+-- Make the id column auto increment from 100000
+ALTER TABLE acme_crm.order_item AUTO_INCREMENT = 100000;
