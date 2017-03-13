@@ -6,6 +6,8 @@
 -- This script queries the database for the ACME Corporation CRM solution
 -- This database will handle orders and customers in North America
 
+USE acme_crm;
+
 SELECT * from items;
 SELECT * from customers;
 SELECT * from order_items;
