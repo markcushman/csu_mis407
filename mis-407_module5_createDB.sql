@@ -69,7 +69,7 @@ CREATE TABLE acme_crm.order_items (
   item_id INT NOT NULL, /* id of the item ordered */
   unit_cost DECIMAL(9,2) NOT NULL, /* cost of the item at the time of order */
   quantity INT NOT NULL, /* number of items ordered */
-  total_cost DECIMAL(9,2) NOT NULL,/* unit_cost x quantity */
+  total_cost DECIMAL(9,2) NOT NULL, /* unit_cost x quantity */
   PRIMARY KEY (id),
   FOREIGN KEY (order_id) REFERENCES acme_crm.orders(id),
   FOREIGN KEY (item_id) REFERENCES acme_crm.items(id)
