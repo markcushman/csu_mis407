@@ -11,5 +11,5 @@
 USE acme_crm;
 
 INSERT INTO acme_crm.orders (customer_id, order_date) VALUES
-  (1000, 'DATETIME: Auto CURDATE()'),
-  (1002, 'DATETIME: Auto CURDATE()');
+  (1000, CURDATE() ),
+  (1002, CURDATE() );
