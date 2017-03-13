@@ -53,8 +53,8 @@ CREATE TABLE acme_crm.orders (
   id INT NOT NULL AUTO_INCREMENT, /* unique ID of this order */
   customer_id INT NOT NULL, /* id of the customer */
   order_date DATETIME NOT NULL, /* date the order was placed */
-  ship_date DATETIME NOT NULL, /* date the order was shipped */
-  order_total DECIMAL(9,2) NOT NULL, /* total cost of the order */
+  ship_date DATETIME, /* date the order was shipped */
+  order_total DECIMAL(9,2), /* total cost of the order */
   PRIMARY KEY (id),
   FOREIGN KEY (customer_id) REFERENCES acme_crm.customers(id)
 );
