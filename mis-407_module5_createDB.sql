@@ -62,8 +62,8 @@ CREATE TABLE acme_crm.orders (
 ALTER TABLE acme_crm.orders AUTO_INCREMENT = 100000;
 
 -- Create the order_item table which is a child of order
-DROP TABLE IF EXISTS acme_crm.order_item;
-CREATE TABLE acme_crm.order_item (
+DROP TABLE IF EXISTS acme_crm.order_items;
+CREATE TABLE acme_crm.order_items (
   id INT NOT NULL AUTO_INCREMENT, /* unique ID of the order line */
   order_id INT NOT NULL, /* id of the order from order table */
   item_id INT NOT NULL, /* id of the item ordered */
@@ -75,4 +75,4 @@ CREATE TABLE acme_crm.order_item (
   FOREIGN KEY (item_id) REFERENCES acme_crm.items(id)
 );
 -- Make the id column auto increment from 100000
-ALTER TABLE acme_crm.order_item AUTO_INCREMENT = 100000;
+ALTER TABLE acme_crm.order_items AUTO_INCREMENT = 100000;
