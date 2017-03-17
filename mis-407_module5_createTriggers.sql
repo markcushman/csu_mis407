@@ -19,10 +19,14 @@ DELIMITER ;
 
 DROP TRIGGER IF EXISTS acme_crm.order_total_after_ins;
 DELIMITER $$
-CREATE TRIGGER acme_crm.order_total_after_ins AFTER INSERT on acme_crm.order_items
+CREATE TRIGGER acme_crm.order_total_after_ins AFTER INSERT ON acme_crm.order_items
   FOR EACH ROW BEGIN
     UPDATE acme_crm.orders
-      SET order_total = (select sum(total_cost) from acme_crm.order_items where order_id=NEW.order_id)
+      SET order_total = (
+        SELECT sum(total_cost)
+          FROM (SELECT total_cost, order_id FROM acme_crm.order_items)
+          WHERE order_id=NEW.order_id
+        )
       WHERE id = NEW.order_id;
   END$$
 DELIMITER ;
