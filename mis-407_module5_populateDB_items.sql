@@ -17,4 +17,9 @@ INSERT INTO acme_crm.items (unit_cost,description) VALUES
   (135.35, 'Dunlop Q3 Sportmax Tire'),
   (89.95, 'Dianese MIG C2 Gloves'),
   (28.55, 'RAM Mounts Universal Cell Phone Holder'),
-  (29.95, 'NoNoise Motorsport Noise Filter Ear Protection');
+  (29.95, 'NoNoise Motorsport Noise Filter Ear Protection'),
+  (902.66, 'Akrapovic Slip-On Exhaust BMW 1200R/RS'),
+  (299.95, 'SW-MOTECH Crash Bars R1200R/RS'),
+  (139.00, 'Kriega US-20 Drypack'),
+  (118.75, 'Puig Universal Touring Windscreen'),
+  (299.99, 'Klim Blade Jacket');
