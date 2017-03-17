@@ -8,7 +8,7 @@
 
 -- First, create the database if it does not exist and switch to that db
 -- We will continue to use fully qualified table names for good style
-CREATE DATABASE IF NOT EXISTS acme_crm;
+DROP DATABASE IF EXISTS acme_crm;
 USE acme_crm;
 
 -- We drop tables if they exist so we can re-create them
