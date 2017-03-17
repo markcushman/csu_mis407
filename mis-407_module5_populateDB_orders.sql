@@ -15,4 +15,5 @@ INSERT INTO acme_crm.orders (customer_id, order_date) VALUES
   (1002, NOW() ),
   (1003, NOW() ),
   (1004, NOW() ),
-  (1005, NOW() );
+  (1005, NOW() ),
+  (1002, NOW() );
