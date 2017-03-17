@@ -10,7 +10,7 @@ USE acme_crm;
 
 DROP TRIGGER IF EXISTS acme_crm.order_items_unit_cost_before_ins_tr;
 CREATE TRIGGER acme_crm.order_items_unit_cost_before_ins_tr BEFORE INSERT ON acme_crm.order_items
-  FOR EACH ROW SET NEW.unit_cost = SELECT unit_cost FROM acme_crm.items WHERE id = NEW.item_id;
+  FOR EACH ROW SET NEW.unit_cost = (SELECT unit_cost FROM acme_crm.items WHERE id = NEW.item_id);
 
 DROP TRIGGER IF EXISTS acme_crm.order_items_total_before_ins_tr;
 CREATE TRIGGER acme_crm.order_items_total_before_ins_tr BEFORE INSERT ON acme_crm.order_items
