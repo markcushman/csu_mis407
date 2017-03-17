@@ -14,7 +14,7 @@ CREATE TRIGGER acme_crm.order_items_unit_cost_before_ins_tr BEFORE INSERT ON acm
 
 DROP TRIGGER IF EXISTS acme_crm.order_items_total_after_ins_tr;
 CREATE TRIGGER acme_crm.order_items_total_after_ins_tr AFTER INSERT on acme_crm.order_items
-    UPDATE acme_crm.order_items SET total_cost = (select sum(unit_cost) from acme_crm.order_items where id=NEW.id);
+ FOR EACH ROW UPDATE acme_crm.order_items SET total_cost = (select sum(unit_cost) from acme_crm.order_items where id=NEW.id);
 
 DROP TRIGGER IF EXISTS acme_crm.order_total_after_ins;
 DELIMITER $$
