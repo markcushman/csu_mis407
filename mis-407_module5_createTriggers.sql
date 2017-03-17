@@ -21,7 +21,7 @@ DELIMITER $$
 CREATE TRIGGER acme_crm.order_total_after_ins AFTER INSERT on acme_crm.order_items
   FOR EACH ROW BEGIN
     UPDATE acme_crm.orders
-      SET total_cost = (select sum(total_cost) from acme_crm.order_items where order_id=OLD.order_id)
-      WHERE id = OLD.order_id;
+      SET total_cost = (select sum(total_cost) from acme_crm.order_items where order_id=NEW.order_id)
+      WHERE id = NEW.order_id;
   END$$
 DELIMITER ;
