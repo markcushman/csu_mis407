@@ -59,5 +59,12 @@ WHERE spend.total_spend > 2000;
 SELECT * FROM acme_crm.customers
   LEFT JOIN acme_crm.orders ON customers.id = orders.customer_id
 UNION
-  SELECT * from acme_crm.customers
+  SELECT * FROM acme_crm.customers
   RIGHT JOIN acme_crm.orders ON customers.id = orders.customer_id;
+
+-- Demonstrate the use of querying a view
+-- Here we are querying the top customers view where the total_spend
+-- is greater than $2000
+SELECT *
+  FROM acme_crm.top_customers_vw
+  WHERE total_spend > 2000;
