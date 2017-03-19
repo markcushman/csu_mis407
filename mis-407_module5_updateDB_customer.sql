@@ -9,7 +9,7 @@
 USE acme_crm;
 
 -- Update the ship_date column for a specific order_date
-UPDATE acme_crm.orders SET ship_date = NOW() WHERE order_id = '100000';
+UPDATE acme_crm.orders SET ship_date = NOW() WHERE id = '100001';
 
 -- Purge anyone with the last name Cushman from the database
 -- including all of their orders
