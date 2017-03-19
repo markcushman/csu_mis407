@@ -14,4 +14,6 @@ INSERT INTO acme_crm.suppliers (name,address1,address2,
   city,postal_code,state_province,country ) VALUES
   ('BMW','Kaiserdamm 90',NULL,'Berlin','14057',NULL,'DE'),
   ('REV\'IT','Reggestraat 17-27',NULL,'Oss','5340',NULL,'NL'),
-  ('Dunlop','PO Box 1109',NULL,'Buffalo','14240','NY','US');
+  ('Kriega','4020 South 26th St.',NULL,'Philadelphia','19112','PA','US'),
+  ('Dunlop','PO Box 1109',NULL,'Buffalo','14240','NY','US'),
+  ('Klim','3753 East County Line Rd.',NULL,'Rigby','83442','ID','US');
