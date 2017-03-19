@@ -19,6 +19,17 @@ FROM acme_crm.orders
 GROUP BY customer_id
 HAVING SUM(order_total) >= 2000;
 
+-- Demonstrate the use of a UNION operator
+-- This query returns all the names and addresses of customers and suppliers
+
+SELECT first_name, last_name, address1, address2,
+  city, postal_code, state_province, country
+  FROM acme_crm.customers
+UNION
+SELECT name, name, address1, address2, city,
+    postal_code, state_province, country
+    FROM acme_crm.suppliers;
+
 -- Demonstrate the use of a subquery
 -- This query returns all the customers in the database, including their total
 -- spend in orders in the new column total_spend
@@ -41,3 +52,12 @@ SELECT * FROM (
   FROM acme_crm.customers)
 AS spend
 WHERE spend.total_spend > 2000;
+
+-- Demonstrate the use of an outer join
+-- Since MySQL doesn't have a FULL OUTER JOIN operator, we have to use a
+-- LEFT JOIN and a RIGHT JOIN and use the UNION operator to combine
+SELECT * FROM acme_crm.customers
+  LEFT JOIN acme_crm.orders ON customers.id = orders.customer_id
+UNION
+  SELECT * from acme_crm.customers
+  RIGHT JOIN acme_crm.orders ON customers.id = orders.customer_id;
