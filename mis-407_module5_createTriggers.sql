@@ -24,13 +24,13 @@ END$$
 DELIMITER ;
 
 -- First drop the trigger
-DROP TRIGGER IF EXISTS acme_crm.order_total_after_ins;
+DROP TRIGGER IF EXISTS acme_crm.order_total_after_ins_tr;
 -- Change the delimiter to $$ so we can add multiple statements inside the
 -- create trigger logic
 DELIMITER $$
 -- We have to create a trigger that updates the order_total in the orders table
 -- from the sum of the order_items table
-CREATE TRIGGER acme_crm.order_total_after_ins AFTER INSERT ON acme_crm.order_items
+CREATE TRIGGER acme_crm.order_total_after_ins_tr AFTER INSERT ON acme_crm.order_items
   FOR EACH ROW BEGIN
     UPDATE acme_crm.orders
       SET order_total = (
