@@ -6,6 +6,7 @@ rm -rf /tmp/sql.tmp
 # now concatenate all the sql commands to create and populate the DB
 cat mis-407_module5_createDB.sql > /tmp/sql.tmp
 cat mis-407_module5_createTriggers.sql >> /tmp/sql.tmp
+cat mis-407_module5_createViews.sql >> /tmp/sql.tmp
 cat mis-407_module5_populateDB_customers.sql >> /tmp/sql.tmp
 cat mis-407_module5_populateDB_suppliers.sql >> /tmp/sql.tmp
 cat mis-407_module5_populateDB_items.sql >> /tmp/sql.tmp
