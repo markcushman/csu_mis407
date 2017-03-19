@@ -45,6 +45,22 @@ CREATE TABLE acme_crm.customers (
 -- Make the id column auto increment from 1000
 ALTER TABLE acme_crm.customers AUTO_INCREMENT = 1000;
 
+-- Create the suppliers table that contains supplier records
+DROP TABLE IF EXISTS acme_crm.suppliers;
+CREATE TABLE acme_crm.suppliers (
+  id INT NOT NULL AUTO_INCREMENT, /* unique ID of the supplier */
+  name VARCHAR(30) NOT NULL, /* customer’s first name */
+  address1 VARCHAR(30) NOT NULL, /* street address */
+  address2 VARCHAR(30), /* secondary street address */
+  city VARCHAR(30) NOT NULL, /* city */
+  postal_code VARCHAR(6) NOT NULL, /* zip or postal code (MX has 6 char postal) */
+  state_province VARCHAR(3), /* state or province (MX has 3 char state) */
+  country VARCHAR(2) NOT NULL, /* country code (US, CA, MX) */
+  PRIMARY KEY (id)
+);
+-- Make the id column auto increment from 1000
+ALTER TABLE acme_crm.suppliers AUTO_INCREMENT = 1000;
+
 -- Now move on to the tables that have foreign key constraints on tables
 -- that we have already created
 
