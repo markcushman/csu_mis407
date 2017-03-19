@@ -7,7 +7,7 @@ rm -rf /tmp/update_sql.tmp
 cat mis-407_module5_updateDB_customer.sql > /tmp/update_sql.tmp
 
 # now execute the commands in the concatenated file and run them through mysql
-cat /tmp/update_sql.tmp | mysql -uroot -p -vv
+cat /tmp/update_sql.tmp | mysql -uroot -p -t -vvv
 
 # clean up
 rm -rf /tmp/update_sql.tmp

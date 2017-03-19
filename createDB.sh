@@ -14,7 +14,7 @@ cat mis-407_module5_populateDB_orders.sql >> /tmp/sql.tmp
 cat mis-407_module5_populateDB_order_items.sql >> /tmp/sql.tmp
 
 # now execute the commands in the concatenated file and run them through mysql
-cat /tmp/sql.tmp | mysql -uroot -p -vv
+cat /tmp/sql.tmp | mysql -uroot -p -t -vvv
 
 # clean up
 rm -rf /tmp/sql.tmp
